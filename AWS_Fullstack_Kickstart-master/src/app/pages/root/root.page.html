@@ -1,0 +1,88 @@
+<mat-card>
+    <mat-card-title>
+        <h4>Hello {{you || 'Angular'}}</h4>
+    </mat-card-title>
+    <mat-card-content>
+        <form>
+            <mat-form-field>
+              <mat-label>Enter your name</mat-label>
+              <input name="you" type="text" matInput [(ngModel)]="you" />
+            </mat-form-field>
+        </form>
+        <div *ngIf="lambda.valid">
+            <button mat-raised-button color="primary" (click)="ping()">
+                Ping AWS Lambda
+            </button>
+            <br/><br/>
+            <mat-chip-list>
+                <mat-chip *ngFor="let item of dbResults">
+                    {{item.value}}
+                </mat-chip>
+            </mat-chip-list>
+        </div>
+       
+    </mat-card-content>
+</mat-card>
+
+<mat-tab-group>
+    <mat-tab label="First"> Content 1 
+        <mat-card>
+            <mat-card-title>
+                <h4 dir="rtl">ברוכים הבאים לאתר החדש!!</h4>
+            </mat-card-title>
+            <section>
+                <div class="example-label" dir="rtl">יש ללחוץ על הכפתור על מנת למלא את פרטי הבקשה</div>
+                <div class="example-button-row">
+                  <button class="create-item" mat-raised-button color="primary" (click)="click_button()">בקשת עזרה</button>
+                </div>
+              </section>
+        </mat-card>
+    </mat-tab>
+    <mat-tab label="Second"> Content 2
+        <mat-card>
+            <mat-card-title>
+                <h4 dir="rtl">נא למלא את פרטי הבקשה</h4>
+            </mat-card-title>
+            <section dir="rtl">
+                <div class="example-button-row">
+                    <h4 dir="rtl">סוג הבקשה:</h4>
+                    <mat-form-field appearance="fill" dir="rtl">
+                      <mat-label dir="rtl">יש לבחור את סוג הבקשה</mat-label>
+                      <select matNativeControl required>
+                        <option value="empty" dir="rtl"></option>
+                        <option value="driving" dir="rtl">הקפצה למקום</option>
+                        <option value="food" dir="rtl">אוכל</option>
+                        <option value="kidney" dir="rtl">כליה</option>
+                        <option value="else_option" dir="rtl">אחר:</option>
+                      </select>
+                    </mat-form-field>                
+                </div>
+            </section>
+
+            <form class="else_option" dir="rtl">              
+                <mat-form-field class="else_task_option" dir="rtl">
+                  <mat-label dir="rtl">אחר:</mat-label>
+                  <textarea matInput placeholder="יש למלא את סוג הפעולה..." dir="rtl"></textarea>
+                </mat-form-field>
+            </form>
+            
+            <mat-form-field appearance="fill">
+                <mat-label dir="rtl">תאריך הבקשה</mat-label>
+                <input matInput [matDatepicker]="picker">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label  dir="rtl">שעת התחלת</mat-label>
+                <input matInput value="" #message>
+              </mat-form-field>
+              
+              <mat-form-field>
+                <mat-label>Action</mat-label>
+                <input matInput value="Dance" #action>
+              </mat-form-field>
+        </mat-card>
+    </mat-tab>
+    <mat-tab label="Third"> Content 3 </mat-tab>
+  </mat-tab-group>

@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css?family=Aleo:300|Gruppo|Roboto:100,300,500&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined');
+
+@import '~@angular/cdk/overlay-prebuilt.css';
+@import './pallete';
+
+body
+{
+    background: #e5e5ef;
+}
+
+body *
+{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 1.2;
+}
+
+b,strong,button>span
+{
+    font-weight: 500 !important;
+}
+
+$width-percent-class: width !default;
+$width-relative-class: width-1 !default;
+
+@for $i from 1 through 10
+{
+    .#{$width-percent-class}-#{$i * 10}
+    {
+        width: calc(#{$i * 10}% - 1em);
+    }
+}
+
+@for $i from 2 through 8
+{
+    .#{$width-relative-class}-#{$i}
+    {
+        width: calc(#{100 / $i}% - 1em);
+    }
+}
+
+mat-form-field
+{
+    margin: 0.75em 0.5em;
+}
+
+mat-card > .mat-expansion-panel-header
+{
+    padding-left: 0.5em;
+}
+
+div.mat-expansion-panel-body
+{
+    clear: both;
+    padding: 0 !important;
+}
+
+mat-sidenav-content
+{
+    overflow: visible !important;
+}
+
+mat-pseudo-checkbox, .mat-pseudo-checkbox
+{
+    display: none !important;
+}
+
+.mat-drawer-backdrop
+{
+    position: fixed !important;
+}
+
+.CodeMirror, .CodeMirror-scroll 
+{
+    min-height: 15em !important;
+    max-height: 22em !important;
+}
+
+.hide
+{
+    display: none;
+}
+
